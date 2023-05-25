@@ -13,7 +13,7 @@ pipeline {
         stage('Create and Copy ZIP') {
     steps {
         script {
-            def timestamp = new Date().format('yyyyMMdd-HHmmss')
+            def timestamp = new Date().format('yyyyMMdd')
             sh "mkdir -p /home/ubuntu/folder-1"
             sh "zip -r /home/ubuntu/folder-1/code-${timestamp}.zip ./Jenkinsfile ./README.md"
             sh "cp /home/ubuntu/folder-1/code-${timestamp}.zip /var/www/html/"
