@@ -11,15 +11,16 @@ pipeline {
         }
         
         stage('Create and Copy ZIP') {
-            steps {
-                script {
-                    def timestamp = new Date().format('yyyyMMdd-HHmmss')
-                    sh "mkdir -p /home/ubuntu/folder-1"
-                    sh "zip -r /home/ubuntu/folder-1/code-${timestamp}.zip ./*"
-                    sh "cp /home/ubuntu/folder-1/code-${timestamp}.zip /var/www/html/"
-                }
-            }
+    steps {
+        script {
+            def timestamp = new Date().format('yyyyMMdd-HHmmss')
+            sh "mkdir -p /home/ubuntu/folder-1"
+            sh "zip -r /home/ubuntu/folder-1/code-${timestamp}.zip ./Jenkinsfile ./README.md"
+            sh "cp /home/ubuntu/folder-1/code-${timestamp}.zip /var/www/html/"
         }
+    }
+}
+
         
         stage('Unzip') {
             steps {
