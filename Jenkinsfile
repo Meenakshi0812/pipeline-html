@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     def timestamp = new Date().format('yyyyMMdd-HHmmss')
-                    sh "sudo mkdir -p /home/ubuntu/folder-1"
+                    sh "mkdir -p /home/ubuntu/folder-1"
                     sh "zip -r /home/ubuntu/folder-1/code-${timestamp}.zip ./*"
                     sh "cp /home/ubuntu/folder-1/code-${timestamp}.zip /var/www/html/"
                 }
